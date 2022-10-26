@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import DropDown from './Dropdown/dropdown';
+import { Container, ValueContainer } from "./app.styles";
 
 function App() {
+  const list = new Array(10).fill(null);
+  const [value, setValue] = useState("");
+
+  const handleToggle = (value) => {
+    setValue(value);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <DropDown handleToggle={handleToggle} list={list} toggled="" />
+      <ValueContainer>{value}</ValueContainer>
+    </Container>
   );
 }
 
