@@ -5,24 +5,27 @@ import {
   DropDownHeader,
   DropDownList,
   DropDownItem,
-  Arrow
+  Arrow,
+  LineSpacer,
 } from "./dropdown.styles";
 
 function DropDown(props) {
   const [toggled, setToggled] = useState(false);
+  const [value, setValue] = useState("");
 
   const handleToggle = () => {
     setToggled(!toggled);
   };
 
   const handleItemClick = ({ target }) => {
+    setValue(target.innerText);
     props.handleToggle(target.innerText);
   };
   return (
     <DropDownContainer>
       <DropDownHeaderContainer onClick={handleToggle}>
-        <DropDownHeader>
-          Value
+        <DropDownHeader toggled={toggled}>
+          {value || "Value"}
           <Arrow toggled={toggled} />
         </DropDownHeader>
 
