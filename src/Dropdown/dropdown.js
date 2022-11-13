@@ -6,7 +6,6 @@ import {
   DropDownList,
   DropDownItem,
   Arrow,
-  LineSpacer,
 } from "./dropdown.styles";
 
 function DropDown(props) {
